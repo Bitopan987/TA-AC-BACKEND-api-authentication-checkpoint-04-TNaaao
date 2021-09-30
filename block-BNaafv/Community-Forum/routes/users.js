@@ -4,6 +4,7 @@ var User = require('../models/User');
 var auth = require('../middlewares/auth');
 
 /* GET users listing. */
+
 router.get('/', auth.verifyToken, async function (req, res, next) {
   try {
     var users = await User.find({});

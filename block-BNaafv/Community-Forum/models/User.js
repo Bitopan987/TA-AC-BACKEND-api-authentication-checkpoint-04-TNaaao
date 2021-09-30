@@ -26,8 +26,8 @@ var userSchema = new Schema(
 
 userSchema.pre('save', async function (next) {
   try {
-    this.password = await bcrypt.hash(this.password, 10);
     console.log(this);
+    this.password = await bcrypt.hash(this.password, 10);
     let data = {
       name: this.name,
       username: this.username,
